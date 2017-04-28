@@ -1,0 +1,53 @@
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed">
+        <span class="sr-only"></span><i class="fa fa-bars"></i>
+      </button>
+      <%= link_to image_tag("logo.png"), root_path, class: "logo_f" %>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to t("menu.home"), root_path %></li>
+        <li><%= link_to t("menu.devices"), root_path %></li>
+        <li class="dropdown notification">
+          <%= link_to "", class: "dropdown-toggle", id: "noti-count",
+            data: {toggle: "dropdown"} do %>
+            <span class="fa fa-globe"></span>
+            <span class="badge badge-danger"><%= t "menu.number_check" %></span>
+            <span class="caret"></span>
+          <% end %>
+          <ul class="dropdown-menu dropdown-notification scrollable-menu">
+            <li ><%= link_to t("list_notification"), "" %>
+              <span><%= t "menu.time_ago" %></span>
+            </li>
+            <li ><%= link_to t("list_notification"), "" %>
+              <span><%= t "menu.time_ago" %></span>
+            </li>
+            <li ><%= link_to t("list_notification"), "" %>
+              <span><%= t "menu.time_ago" %></span>
+            </li>
+            <li ><%= link_to t("list_notification"), "" %>
+              <span><%= t "menu.time_ago" %></span>
+            </li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to t("menu.profile"), "" %></li>
+            <li><%= link_to t("menu.settings"), "" %></li>
+            <li><%= link_to t("menu.my_borrowing_devices"), "" %></li>
+            <li>
+              <%= link_to t("sessions.signout"), "", method: "delete" %>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>

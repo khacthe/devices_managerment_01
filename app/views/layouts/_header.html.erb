@@ -1,0 +1,18 @@
+<header>
+  <div class="header-content">
+    <div class="header-content-inner">
+      <h1 id="homeHeading"><%= t "home.title_home" %></h1>
+      <hr>
+      <div class="input-group search_form home_search">
+        <%= form_tag "", method: :get do %>
+          <%= text_field_tag :search, params[:search],
+            placeholder: t("home.search_device"), class: "form-control input-lg" %>
+          <span class="input-group-btn">
+            <%= submit_tag t "home.search", class: "btn btn-info btn-lg"  %>
+          </span>
+        <% end %>
+      </div>
+        <%= link_to t("sessions.signin"), "", class: "btn btn-primary" %>
+    </div>
+  </div>
+</header>
