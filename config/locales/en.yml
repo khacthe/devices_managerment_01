@@ -1,3 +1,30 @@
 en:
   home:
     tittle: "Manager devices"
+    title_home: "Manager devices"
+    search: "Search"
+    search_device: "Search Device"
+    title_home_contact: "Contact manager devices"
+    description_home_contact: "Please contact us !"
+    phone_home_contact: "0987.654.567"
+    email_home_contact: "framgiacontact@gmail.com"
+
+  sessions:
+    signin: "Sign_in"
+    signout: "Sign_out"
+
+  admin:
+    dashboard: "Dashboard"
+
+  menu:
+    home: "Home"
+    about: "About"
+    help: "Help"
+    devices: "Devices"
+    list_notification: "List notification"
+    time_ago: "time ago"
+    number_check: 0
+    profile: "Profile"
+    settings: "Settings"
+    my_borrowing_devices: "My borrowing device"
+    user: "Users"
