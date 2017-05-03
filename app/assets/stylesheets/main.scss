@@ -1135,3 +1135,68 @@ body {
     }
   }
 }
+
+// =========Login ==================//
+
+.form_login{
+  background-image:url("./header.jpg");
+  color:#fff;
+  background-attachment: fixed;
+  height: 100%;
+  padding: 70px 0;
+  position:relative;
+  .image_login{
+    text-align: center;
+    a{
+      img{
+        max-width: 200px;
+      }
+    }
+  }
+  form{
+    background: #fff;
+    padding: 0 30px 30px 30px;
+    border-radius: 10px;
+    min-width: 500px;
+    margin: auto;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    text-align: left;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    input[type="submit"]{
+      background-color: #ee4b28;
+      border-color: #ed431f;
+      border: none;
+      padding: 5px 20px;
+      font-size: 20px;
+      width: 100%;
+    }
+    input.form-control{
+      margin-bottom: 20px;
+    }
+    label{
+      color:#5d5454;
+      font-weight: normal;
+      font-style: italic;
+    }
+  }
+  &:before{
+    content: "";
+    position: absolute;
+    z-index: 0;
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  .forgot{
+    text-align: center;
+    padding-top:20px;
+    display: block;
+  }
+}

@@ -41,7 +41,8 @@
             <li><%= link_to t("menu.settings"), "" %></li>
             <li><%= link_to t("menu.my_borrowing_devices"), "" %></li>
             <li>
-              <%= link_to t("sessions.signout"), "", method: "delete" %>
+              <%= link_to t("sessions.signout"), destroy_user_session_path,
+                method: "delete" %>
             </li>
           </ul>
         </li>

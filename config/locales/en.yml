@@ -12,6 +12,19 @@ en:
   sessions:
     signin: "Sign_in"
     signout: "Sign_out"
+    login: "Login"
+    email: "Email"
+    password: "Password"
+    forgot_pass: "Forgot your password?"
+    send_pass: "Send password"
+    change_pass: "Change password"
+    new_pass: "New password"
+    confirm_new_pass: "Confirm new password"
+    change_my_pass: "Change my password"
+    change_to: "Change email to"
+    password_changed: "Your password has been changed"
+    change_my_password: "Change my password"
+    receive_confirmation: "Didn't receive confirmation instructions?"
 
   admin:
     dashboard: "Dashboard"
