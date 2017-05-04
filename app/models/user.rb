@@ -10,8 +10,7 @@ class User < ApplicationRecord
 
   belongs_to :group
 
-  devise :database_authenticatable, :registerable, :recoverable,
-    :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :rememberable, :validatable
 
   validates :position, presence: true,
     inclusion: {in: User.user_positions.values}

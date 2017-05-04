@@ -12,7 +12,8 @@
           </span>
         <% end %>
       </div>
-        <%= link_to t("sessions.signin"), "", class: "btn btn-primary" %>
+      <%= link_to t("sessions.signin"), new_user_session_path,
+        class: "btn btn-primary login" %>
     </div>
   </div>
 </header>
