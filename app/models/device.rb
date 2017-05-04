@@ -10,6 +10,14 @@ class Device < ApplicationRecord
   validates :name, presence: true
   validates :informations, presence: true
 
+  scope :get_all_devices, -> do
+    Device.all.order(borrowed: :asc)
+  end
+
+  scope :get_devices_by_category, -> category_id do
+    where(category_id: category_id)
+  end
+
   private
   def set_defaults
     self.borrowed ||= false

@@ -1,0 +1,9 @@
+<%= form_tag "#", remote: true do %>
+  <div class="btn-borrow"">
+    <div class="input-group-btn">
+      <%= hidden_field_tag :device_id, device.id %>
+      <%= submit_tag I18n.t("device.btn_borrow"),
+        class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
