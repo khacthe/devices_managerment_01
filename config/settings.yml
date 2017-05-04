@@ -2,3 +2,5 @@ view:
   device:
     information_length: 100
     per_page: 2
+  devise:
+    off_auto: "off"

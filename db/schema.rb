@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20170428023211) do
 
-  create_table "borrow_devices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "borrow_devices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.datetime "borrow_date_from"
     t.datetime "borrow_date_to"
     t.integer  "status",           default: 1
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20170428023211) do
     t.index ["user_id"], name: "index_borrow_devices_on_user_id", using: :btree
   end
 
-  create_table "borrow_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "borrow_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer  "borrow_device_id"
     t.integer  "device_id"
     t.datetime "created_at",       null: false
@@ -32,13 +32,13 @@ ActiveRecord::Schema.define(version: 20170428023211) do
     t.index ["device_id"], name: "index_borrow_items_on_device_id", using: :btree
   end
 
-  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "devices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "devices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
     t.string   "thumnail"
     t.text     "informations", limit: 65535
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20170428023211) do
     t.index ["workspace_id"], name: "index_devices_on_workspace_id", using: :btree
   end
 
-  create_table "groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
     t.integer  "workspace_id"
     t.datetime "created_at",   null: false
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 20170428023211) do
     t.index ["workspace_id"], name: "index_groups_on_workspace_id", using: :btree
   end
 
-  create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.text     "messages",   limit: 65535
     t.integer  "status",                   default: 0
     t.integer  "user_id"
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 20170428023211) do
     t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
   end
 
-  create_table "notifications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "notifications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "activity"
     t.string   "notifications"
     t.boolean  "read"
@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 20170428023211) do
     t.index ["user_id"], name: "index_notifications_on_user_id", using: :btree
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "username"
@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 20170428023211) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  create_table "workspaces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "workspaces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
     t.string   "address"
     t.string   "phone"
