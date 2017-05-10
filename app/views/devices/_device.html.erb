@@ -1,0 +1,28 @@
+<li class="device-item">
+  <div class="item">
+    <div class="img-item">
+      <%= link_to device_path(device.id) do %>
+        <%= image_tag device.thumnail, class: "img-response" %>
+      <% end -%>
+      <hr/>
+    </div>
+    <div class="item-name">
+      <h3><%= link_to device.name, device_path(device.id) %></h3>
+    </div>
+    <div class="information">
+      <p class="more-information"><%= truncate(device.informations,
+        length: Settings.view.device.information_length,
+        inmission: I18n.t("device.ellipsestext")) %>
+        <%= link_to I18n.t("device.show_more"), device_path(device.id) %>
+      </p>
+    </div>
+    <div class="borrow">
+      <p><%= t "device.borrow" %><%= get_borrowed(device.borrowed) %></p>
+    </div>
+    <% if !device.borrowed %>
+      <div>
+        <%= render "add_devices_borrowed", device: device %>
+      </div>
+    <% end -%>
+  </div>
+</li>

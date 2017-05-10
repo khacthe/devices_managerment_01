@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="device-img">
+        <%= image_tag @device.thumnail, class: "img-response" %>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="device-name">
+        <h2><%= @device.name %></h2>
+        <hr/>
+      </div>
+      <div class="information">
+        <p><%= @device.informations %></p>
+      </div>
+      <div class="status">
+        <p><%= t "device.status" %><%= @device.status %></p>
+      </div>
+      <div class="borrow">
+        <p><%= t "device.borrow" %><%= get_borrowed(@device.borrowed) %></p>
+      </div>
+      <% if !@device.borrowed %>
+        <div class="btn-borrow">
+          <%= link_to I18n.t("device.btn_borrow"), "#",
+            class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

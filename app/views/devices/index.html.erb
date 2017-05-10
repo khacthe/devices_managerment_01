@@ -1,0 +1,25 @@
+<div class="container list-devices">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="categories">
+        <ul>
+          <li>
+            <%= link_to I18n.t("device.category"), "#",
+              class: "active category-link" %>
+          </li>
+          <% if get_categories.present? %>
+            <%= render partial: "category", collection: get_categories %>
+          <% end -%>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="search-item"></div>
+      <div class="show-list">
+        <%= paginate @devices %>
+        <%= render "list_devices" %>
+        <%= paginate @devices %>
+      </div>
+    </div>
+  </div>
+</div>

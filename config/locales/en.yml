@@ -41,3 +41,15 @@ en:
     settings: "Settings"
     my_borrowing_devices: "My borrowing device"
     user: "Users"
+
+  device:
+    status: "Status: "
+    borrow: "Status borrow: "
+    borrowed: "Borrowed"
+    not_yet_borrowed: "Not borrowed"
+    btn_borrow: "Borrow"
+    category: "Categories"
+    show_more: "show more >"
+    hide: "hide"
+    ellipsestext: "..."
+    device_not_found: "Sorry! Device not found"

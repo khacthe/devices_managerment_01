@@ -1,0 +1,4 @@
+view:
+  device:
+    information_length: 100
+    per_page: 2

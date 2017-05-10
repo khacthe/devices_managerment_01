@@ -21,6 +21,7 @@ gem "rolify"
 gem "cancan"
 gem "pry", "~> 0.10.4"
 gem "config"
+gem "kaminari"
 
 group :development, :test do
   # Use mysql data
