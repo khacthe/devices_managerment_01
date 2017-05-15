@@ -53,3 +53,7 @@ en:
     hide: "hide"
     ellipsestext: "..."
     device_not_found: "Sorry! Device not found"
+
+  users:
+    update: "Update"
+    please_login: "login or action error"

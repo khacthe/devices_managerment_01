@@ -1,0 +1,11 @@
+<div class="page_profile">
+  <div class="container">
+    <div class="col-sm-3 left_profile">
+      <%= image_tag @user.avatar.url if @user.avatar? %>
+      <p><%= @user.username %></p>
+    </div>
+    <div class="col-sm-9 right_profile">
+
+    </div>
+  </div>
+</div>

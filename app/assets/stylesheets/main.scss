@@ -1200,3 +1200,46 @@ body {
     display: block;
   }
 }
+
+// ========Edi profile===========//
+.profile_page{
+  .edit_profile{
+    max-width: 800px;
+    background: #fff;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    border-radius: 5px;
+    .header_profile{
+      text-align: center;
+      img{
+        max-width: 100px;
+        border-radius:50%;
+      }
+      p{
+        font-size: 20px;
+        text-transform: capitalize;
+        margin-bottom: 0;
+        font-style: italic;
+        color:#F05F40;
+      }
+    }
+    form{
+      .field{
+        margin-bottom: 10px;
+      }
+      input[type="submit"]{
+        width: 100%;
+        padding: 5px;
+        color: #fff;
+        background: #ee4b28;
+        border: none;
+        margin-bottom: 8px;
+        border-radius:2px;
+        &:hover{
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+<div class="profile_page">
+  <div class="container">
+    <div class="edit_profile">
+      <div class="header_profile">
+        <% if @user.avatar? %>
+          <%= image_tag @user.avatar.url %>
+        <% else %>
+          <%= image_tag("logo.png") %>
+        <% end %>
+          <p><%= @user.username %></p>
+        </div>
+      <%= form_for(resource, as: resource_name, url: user_registration_path,
+        html: {method: :put}) do |f| %>
+        <%= devise_error_messages! %>
+
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, class: "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :username %><br />
+          <%= f.text_field :username, class: "form-control" %>
+        </div>
+
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div><%= t "users.current_waiting" %>
+            <%= resource.unconfirmed_email %></div>
+        <% end %>
+
+        <div class="field">
+          <%= f.label :password %> <i>(<%= t "users.leave_blank" %>)</i><br />
+          <%= f.password_field :password, autocomplete: Settings.off_auto,
+            class: "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation,
+            autocomplete: Settings.off_auto, class: "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :current_password %>
+            <i>(<%= t "users.we_need_current" %>)</i><br />
+          <%= f.password_field :current_password,
+            autocomplete: Settings.off_auto, class: "form-control" %>
+        </div>
+
+        <p class="avatar">
+          <%= f.label :avatar %><br />
+          <%= f.file_field :avatar %>
+        </p>
+
+        <div class="actions">
+          <%= f.submit t "users.update" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
