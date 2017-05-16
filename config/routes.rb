@@ -8,5 +8,6 @@ Rails.application.routes.draw do
       as: "edit_user_registration"
     put "users", to: "devise/registrations#update", as: "user_registration"
   end
-  resources :users, only: [:show]
+  resources :users, only: :show
+  resources :messages
 end

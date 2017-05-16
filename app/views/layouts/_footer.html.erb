@@ -21,3 +21,6 @@
     </div>
   </div>
 </section>
+<% if user_signed_in? %>
+  <%= render partial: "messages/form", locals: {message: Message.new} %>
+<% end %>

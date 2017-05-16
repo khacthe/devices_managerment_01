@@ -8,4 +8,6 @@ class Message < ApplicationRecord
   validates :status, presence: true,
     inclusion: {in: Message.message_statuses.values}
 
+  scope :workspace_messages, -> user_id do where(sendtoid: user_id)
+  end
 end
