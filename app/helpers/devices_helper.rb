@@ -12,4 +12,8 @@ module DevicesHelper
     Category.all
   end
 
+  def get_index index
+    index += Settings.view.increase_index
+  end
+
 end
