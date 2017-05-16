@@ -14,7 +14,16 @@
       </div>
     </div>
     <div class="col-md-9">
-      <div class="search-item"></div>
+      <div class="search-item">
+        <%= search_form_for @search do |f| %>
+          <div class="field">
+            <%= f.text_field :name_cont, placeholder: t("device.device_name") %>
+            <%= f.check_box(:borrowed_eq, {}, false, nil) %>
+            <%= f.label :borrowed_eq, t("device.not_borrowed") %><br>
+          </div>
+          <div class="actions"><%= f.submit t("device.search") %></div>
+        <% end %>
+      </div>
       <div class="show-list">
         <%= paginate @devices %>
         <%= render "list_devices" %>

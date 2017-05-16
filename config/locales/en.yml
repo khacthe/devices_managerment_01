@@ -53,6 +53,9 @@ en:
     hide: "hide"
     ellipsestext: "..."
     device_not_found: "Sorry! Device not found"
+    search: "Search"
+    device_name: "Device name"
+    not_borrowed: "not borrowed"
 
   users:
     update: "Update"
