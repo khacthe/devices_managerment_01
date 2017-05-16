@@ -9,12 +9,12 @@
   .categories{
     ul{
       list-style-type: none;
-      margin: 50px;
       padding: 0;
       width: 100%;
       background-color: #f1f1f1;
       height: 100%;
       overflow: auto;
+      margin-top: 30px;
       li{
         .category-link{
           display: block;
@@ -93,5 +93,47 @@
   }
   .morelink {
     display: block;
+  }
+}
+
+// ======Search item ========//
+.search-item{
+  form{
+    text-align: right;
+    padding: 10px;
+    background: #fff;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 2px rgba(0, 0, 0, 0.23);
+    border-radius: 2px;
+    .field{
+      display: inline-block;
+      input[type="text"]{
+        border: solid 1px #ddd;
+        padding: 5px 20px;
+        border-radius: 3px;
+        outline: none;
+      }
+      input[type="checkbox"]{
+        margin-left: 5px;
+      }
+      label{
+        font-weight: normal;
+        font-style: italic;
+        padding: 0 10px 0 5px;
+        color: #ee4b28;
+      }
+    }
+    .actions{
+      display: inline-block;
+      input[type="submit"]{
+        border: none;
+        padding: 5px 10px;
+        color: #fff;
+        background: #ee4b28;
+        border-radius:3px;
+        &:hover{
+          opacity: 0.6;
+        }
+      }
+    }
   }
 }
