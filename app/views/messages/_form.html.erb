@@ -1,0 +1,11 @@
+<div class="messagefixed">
+  <h3 class="title_message"><%= t "home.send_message" %></h3>
+  <div class="content_form">
+    <%= simple_form_for message do |f| %>
+      <%= f.input :title, input_html: {class: "form-control"} %>
+      <%= f.input :messages, input_html: {class: "form-control"} %>
+      <%= f.hidden_field :status, value: 0 %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>

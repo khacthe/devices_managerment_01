@@ -137,3 +137,55 @@
     }
   }
 }
+
+// =====Message form create =====//
+.messagefixed{
+  min-width: 350px;
+  position:fixed;
+  right: 0;
+  bottom:0;
+  background:#fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  z-index: 99;
+  .title_message{
+    padding:5px 20px;
+    margin:0;
+    text-align: center;
+    color:#fff;
+    background: #ee4b28;
+    cursor: pointer;
+  }
+  .content_form{
+    padding:20px;
+    display: none;
+    input[type="submit"]{
+      border:none;
+      background:#ee4b28;
+      color:#fff;
+      margin-top:10px;
+      width: 100%;
+      padding:10px 0;
+      &:hover{
+        opacity: 0.8;
+      }
+    }
+    textarea{
+      min-height: 100px;
+    }
+  }
+}
+// Message page
+.message_pages{
+  margin-top: 40px;
+  ul{
+    padding: 20px;
+    margin-bottom: 30px;
+    li{
+      background:#fff;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+      margin-bottom: 10px;
+      border-radius: 2px;
+      padding:10px 20px;
+    }
+  }
+}

@@ -1,0 +1,6 @@
+<%= form_for message do |f| %>
+  <%= f.select :status, [[Message.message_statuses[:waiting], 0],
+    [Message.message_statuses[:processing], 1],
+    [Message.message_statuses[:done], 2]] %>
+  <%= f.submit t("messages.update"), classs: "btn btn-primary" %>
+<% end %>

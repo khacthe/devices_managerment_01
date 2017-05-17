@@ -60,3 +60,10 @@ en:
   users:
     update: "Update"
     please_login: "login or action error"
+
+  messages:
+    waiting: "Waiting"
+    processing: "Processing"
+    done: "Done"
+    update: "update"
+    send: "Send"

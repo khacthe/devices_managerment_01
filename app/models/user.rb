@@ -15,6 +15,8 @@ class User < ApplicationRecord
   validates :position, presence: true,
     inclusion: {in: User.user_positions.values}
 
+  scope :get_manager, -> position {where position: position}
+
   private
   def set_defaults
     self.position ||= User.user_positions[:member]
