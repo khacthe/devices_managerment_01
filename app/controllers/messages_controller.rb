@@ -14,6 +14,7 @@ class MessagesController < ApplicationController
     @message.sendtoid = @workspace.users
       .get_manager(User.user_positions[:bo])[0]["id"]
     if @message.save
+      create_notification
       flash[:info] = t "users.create_success"
       redirect_to messages_path
     else
@@ -27,6 +28,9 @@ class MessagesController < ApplicationController
 
   def update
     if @message.update_attributes message_params
+      Notification.create( user_id: @message.user_id,
+        activity: t("messages.update"),
+        notifications: t("messages.workspace_update"), link: "")
       flash[:success] = t "messages.update_mess_success"
       redirect_to messages_path
     else
@@ -39,6 +43,15 @@ class MessagesController < ApplicationController
 
   def message_params
     params.require(:message).permit :title, :messages, :status
+  end
+
+  def create_notification
+    @workspace = current_user.group.workspace
+    @workspace.users.get_manager(2).each do |user|
+      Notification.create( user_id: user.id, activity: t("messages.message"),
+        notifications: "#{current_user.username} #{t("messages.send_message")}",
+        link: "#{messages_path}")
+    end
   end
 
   def find_message

@@ -41,6 +41,7 @@ en:
     settings: "Settings"
     my_borrowing_devices: "My borrowing device"
     user: "Users"
+    ago: "ago"
 
   device:
     status: "Status: "
@@ -67,3 +68,6 @@ en:
     done: "Done"
     update: "update"
     send: "Send"
+    workspace_update: "Workspace BO update status message"
+    message: "message"
+    send_message: "send message"
