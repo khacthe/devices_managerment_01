@@ -1,0 +1,41 @@
+<div class="borrow-device-form">
+  <div class="title">
+    <h3><%= t "borrow_device.title" %></h3>
+  </div>
+  <div class="list-borrowed">
+    <%= render "layouts/cart" %>
+  </div>
+  <div class="form">
+    <%= form_for @borrow_device do |f| %>
+
+      <div class="td_small">
+        <%= image_tag current_user.avatar? ? current_user.avatar
+          : Settings.view.user.default_avatar, class: "cart_image" %>
+      </div>
+      <br/>
+
+      <%= f.label t "borrow_device.name" %>
+      <%= f.label :username, current_user.username, class: "form-control" %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <br/>
+
+      <%= f.label t "borrow_device.email" %>
+      <%= f.label :username, current_user.email, class: "form-control" %>
+      <br/>
+
+      <%= f.label t("borrow_device.date_borrow") %>
+      <br/>
+      <%= f.text_field :borrow_date_from, class: "date_from", readonly: true,
+        data: {provide: :datepicker} %>
+      <span><%= t "borrow_device.to" %></span>
+      <%= f.text_field :borrow_date_to, class: "date_to", readonly: true,
+        data: {provide: :datepicker} %>
+
+      <%= f.hidden_field :status,
+        value: BorrowDevice.borrow_statuses[:waiting] %>
+      <br/>
+
+      <%= f.submit t("borrow_device.checkout"), class: "btn btn-primary" %>
+    <% end -%>
+  </div>
+</div>

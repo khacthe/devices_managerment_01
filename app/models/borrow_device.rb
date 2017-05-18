@@ -14,6 +14,10 @@ class BorrowDevice < ApplicationRecord
   validates :status, presence: true,
     inclusion: {in: BorrowDevice.borrow_statuses.values}
 
+  scope :find_by_user_id, -> user_id do
+    BorrowDevice.where(user_id: user_id).order(created_at: :desc)
+  end
+
   private
   def set_defaults
     self.borrow_type ||= false
