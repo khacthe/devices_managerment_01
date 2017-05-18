@@ -47,6 +47,9 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  Rails.application.configure do
+    config.action_cable.url = "http://localhost:3000/cable"
+  end
 
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.

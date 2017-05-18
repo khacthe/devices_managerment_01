@@ -10,43 +10,52 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to t("menu.home"), root_path %></li>
         <li><%= link_to t("menu.devices"), devices_path %></li>
-        <li class="dropdown notification">
-          <%= link_to "", class: "dropdown-toggle", id: "noti-count",
-            data: {toggle: "dropdown"} do %>
-            <span class="fa fa-globe"></span>
-            <span class="badge badge-danger"><%= t "menu.number_check" %></span>
-            <span class="caret"></span>
-          <% end %>
-          <ul class="dropdown-menu dropdown-notification scrollable-menu">
-            <li ><%= link_to t("list_notification"), "" %>
-              <span><%= t "menu.time_ago" %></span>
-            </li>
-            <li ><%= link_to t("list_notification"), "" %>
-              <span><%= t "menu.time_ago" %></span>
-            </li>
-            <li ><%= link_to t("list_notification"), "" %>
-              <span><%= t "menu.time_ago" %></span>
-            </li>
-            <li ><%= link_to t("list_notification"), "" %>
-              <span><%= t "menu.time_ago" %></span>
-            </li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a class="menu_drop" data-toggle="dropdown">
-            <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-          </a>
-          <ul class="dropdown-menu">
-            <li><%= link_to t("menu.profile"), current_user %></li>
-            <li><%= link_to t("menu.settings"),
-              edit_user_registration_path %></li>
-            <li><%= link_to t("menu.my_borrowing_devices"), "" %></li>
-            <li>
-              <%= link_to t("sessions.signout"), destroy_user_session_path,
-                method: "delete" %>
-            </li>
-          </ul>
-        </li>
+        <% if user_signed_in? %>
+          <li class="dropdown notification">
+            <%= link_to "", class: "dropdown-toggle", id: "noti-count",
+              data: {toggle: "dropdown"},
+              aria: {haspopup: "true", "data-id": current_user.id,
+              expanded: "false"} do %>
+              <span class="fa fa-globe"></span>
+              <span class="badge badge-danger"
+                id="badge-dange_<%= current_user.id%>"
+                data-noti-count="<%= current_user.notifications.num_not_check %>">
+                <%= current_user.notifications.num_not_check %>
+              </span>
+              <span class="caret"></span>
+            <% end %>
+            <ul class="dropdown-menu dropdown-notification scrollable-menu"
+              id="show_notifition_<%= current_user.id %>" >
+              <% if current_user.notifications.any?  %>
+                <% current_user.notifications.each do |notification| %>
+                  <li class="read_<%= "#{notification.read}" %>">
+                    <%= link_to "#{notification.notifications}",
+                    notification.link, "data-id": notification.id %>
+                    <span>
+                      <%= time_ago_in_words(notification.created_at)
+                        + t("menu.ago") %>
+                    </span>
+                  </li>
+                <% end %>
+              <% end %>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a class="menu_drop" data-toggle="dropdown">
+              <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to t("menu.profile"), current_user %></li>
+              <li><%= link_to t("menu.settings"),
+                edit_user_registration_path %></li>
+              <li><%= link_to t("menu.my_borrowing_devices"), "" %></li>
+              <li>
+                <%= link_to t("sessions.signout"), destroy_user_session_path,
+                  method: :delete %>
+              </li>
+            </ul>
+          </li>
+        <% end %>
       </ul>
     </div>
     <!-- /.navbar-collapse -->
