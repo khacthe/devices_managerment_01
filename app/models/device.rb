@@ -22,6 +22,10 @@ class Device < ApplicationRecord
     where(id: ids)
   end
 
+  scope :get_all, -> workspace_id do
+    where(workspace_id: workspace_id)
+  end
+
   scope :get_date_to, -> device_id do
     waiting = BorrowDevice.borrow_statuses[:waiting]
     leader_accept = BorrowDevice.borrow_statuses[:leader]

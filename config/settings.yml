@@ -4,7 +4,11 @@ view:
   height_image: 50
   device:
     information_length: 100
-    per_page: 2
+    per_page: 10
+  borrow_device:
+    per_page: 10
+  user:
+    default_avatar: "default-avatar.jpg"
   devise:
     off_auto: "off"
 server:

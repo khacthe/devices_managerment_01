@@ -1,0 +1,25 @@
+<div class="borrow-details">
+  <div class="title">
+    <h3>
+      <%= t "borrow_device.list_device" %><%= @borrowed_device.id %>
+    </h3>
+  </div>
+  <div class="tbl-borrowed-items">
+    <table class="table">
+      <tr>
+        <th><%= t "borrowed_device.index" %></th>
+        <th><%= t "device.id_device" %></th>
+        <th><%= t "device.name_device" %></th>
+        <th><%= t "borrowed_device.image" %></th>
+      </tr>
+      <% if @borrowed_items.present? %>
+        <%= render partial: "list_borrowed_item",
+          collection: @borrowed_items %>
+      <% end -%>
+    </table>
+    <div>
+      <b><%= t "borrow_device.status" %></b>
+      <i><%= get_borrow_status @borrowed_device.status %></i>
+    </div>
+  </div>
+</div>

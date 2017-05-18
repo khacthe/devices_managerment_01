@@ -1,0 +1,21 @@
+<tr class="<%= "red" if check_over_time borrowed_device %>">
+  <td><%= get_index borrowed_device_counter %></td>
+  <td>
+    <b><%= borrowed_device.created_at.to_formatted_s(:long) %></b>
+  </td>
+  <td>
+    <b><%= borrowed_device.borrow_date_to.to_formatted_s(:long) %></b>
+  </td>
+  <td>
+    <b><%= get_borrow_status borrowed_device.status %></b>
+  </td>
+  <td>
+    <%= link_to borrow_device_path(borrowed_device.id) do %>
+      <span class="glyphicon glyphicon-eye-open"></span>
+    <% end -%>
+    <%= link_to t("borrow_device.btn_reject"),
+      borrow_device_path(borrowed_device.id), method: :put,
+      data: {confirm: t("device.confirm-delete",
+      name: borrowed_device.id)} %>
+  </td>
+</tr>
