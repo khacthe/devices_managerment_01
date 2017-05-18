@@ -1,0 +1,11 @@
+<h4><%= t "device.list_borrowed" %></h4>
+<table class="table table-bordered">
+  <tr>
+    <th class="td_small"><%= t "device.thumnail" %></th>
+    <th><%= t "device.name_device" %></th>
+    <th><%= t "device.delete" %></th>
+  </tr>
+  <% if get_list_devices.present? %>
+    <%= render partial: "layouts/cart_item", collection: get_list_devices %>
+  <% end -%>
+</table>

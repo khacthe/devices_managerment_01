@@ -1,4 +1,4 @@
-<%= form_tag "#", remote: true do %>
+<%= form_tag new_cart_path, remote: true do %>
   <div class="btn-borrow"">
     <div class="input-group-btn">
       <%= hidden_field_tag :device_id, device.id %>

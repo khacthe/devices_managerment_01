@@ -1,0 +1,14 @@
+<tr>
+  <td class="td_small">
+    <%= image_tag cart_item.thumnail, class: "img-responsive cart_image" %>
+  </td>
+  <td>
+    <b><%= link_to cart_item.name, device_path(cart_item.id) %></b>
+  </td>
+  <td>
+    <%= link_to destroy_cart_path(device_id: cart_item.id),
+      method: :delete, remote: true do %>
+      <span class="glyphicon glyphicon-remove"></span>
+    <% end -%>
+  </td>
+</tr>

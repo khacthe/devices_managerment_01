@@ -19,7 +19,12 @@
       <div class="borrow">
         <p><%= t "device.borrow" %><%= get_borrowed(@device.borrowed) %></p>
       </div>
-      <% if !@device.borrowed %>
+      <% if @device.borrowed %>
+        <div>
+          <%= t "device.date_return" %>
+          <%= @borrow_date_to.to_formatted_s(:long) %>
+        </div>
+      <% else %>
         <div class="btn-borrow">
           <%= link_to I18n.t("device.btn_borrow"), "#",
             class: "btn btn-primary" %>

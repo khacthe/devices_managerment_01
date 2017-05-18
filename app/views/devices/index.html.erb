@@ -4,7 +4,7 @@
       <div class="categories">
         <ul>
           <li>
-            <%= link_to I18n.t("device.category"), "#",
+            <%= link_to t("device.category"), "#",
               class: "active category-link" %>
           </li>
           <% if get_categories.present? %>
@@ -12,6 +12,11 @@
           <% end -%>
         </ul>
       </div>
+      <div class="list-borrowed">
+        <%= render "layouts/cart" %>
+      </div>
+      <%= link_to t("device.botrrow_device"), "#",
+        class: "btn btn-primary book-devices" %>
     </div>
     <div class="col-md-9">
       <div class="search-item">
@@ -19,7 +24,7 @@
           <div class="field">
             <%= f.text_field :name_cont, placeholder: t("device.device_name") %>
             <%= f.check_box(:borrowed_eq, {}, false, nil) %>
-            <%= f.label :borrowed_eq, t("device.not_borrowed") %><br>
+ -          <%= f.label :borrowed_eq, t("device.not_borrowed") %><br>
           </div>
           <div class="actions"><%= f.submit t("device.search") %></div>
         <% end %>

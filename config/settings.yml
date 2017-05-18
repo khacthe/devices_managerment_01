@@ -1,6 +1,11 @@
 view:
+  increase_index: 1
+  width_image: 50
+  height_image: 50
   device:
     information_length: 100
     per_page: 2
   devise:
     off_auto: "off"
+server:
+  min_size: 0
