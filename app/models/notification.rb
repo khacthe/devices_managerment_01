@@ -8,7 +8,7 @@ class Notification < ApplicationRecord
   validates :activity, presence: true
   validates :notifications, presence: true
 
-  scope :default_load {order(created_at: :desc)}
+  scope :default_load, ->{order(created_at: :desc)}
   scope :num_not_check, ->{where(checked: false).count}
   scope :notification_not_checked, ->{where(checked: false)}
 
