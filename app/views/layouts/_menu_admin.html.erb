@@ -1,0 +1,26 @@
+<div class="menu-admin">
+  <ul>
+    <li>
+      <%= link_to t("admin_menu.menu"), "#", class: "active menu-admin-link" %>
+    </li>
+    <li>
+      <%= link_to t("admin_menu.workspace"), "#", class: "menu-admin-link" %>
+    </li>
+    <li>
+      <%= link_to t("admin_menu.group"), "#", class: "menu-admin-link" %>
+    </li>
+    <li>
+      <%= link_to t("admin_menu.category"), "#", class: "menu-admin-link" %>
+    </li>
+    <li>
+      <%= link_to t("admin_menu.user"), "#", class: "menu-admin-link" %>
+    </li>
+    <li>
+      <%= link_to t("admin_menu.device"), "#", class: "menu-admin-link" %>
+    </li>
+    <li>
+      <%= link_to t("admin_menu.borrow"), admin_borrow_devices_path,
+        class: "menu-admin-link" %>
+    </li>
+  </ul>
+</div>

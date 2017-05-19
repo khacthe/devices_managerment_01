@@ -1,0 +1,53 @@
+<div class="admin-borrow-details">
+  <div class="title">
+    <h3><%= t "borrow_device.list_device" %>
+      <%= @borrowed_device.id %>
+    </h3>
+  </div>
+  <div class="col-md-5 user-infor">
+    <div class="td_small">
+      <%= image_tag current_user.avatar? ? current_user.avatar
+        : Settings.view.user.default_avatar, class: "cart_image" %>
+    </div>
+    <p>
+      <%= t "users.name" %>
+      <%= @borrowed_device.user.username %>
+    </p>
+    <p>
+      <%= t "users.email" %>
+      <%= @borrowed_device.user.email %>
+    </p>
+    <p>
+      <%= t "users.group" %>
+      <%= @borrowed_device.user.group.name %>
+    </p>
+    <p>
+      <%= t "users.workspace" %>
+      <%= @borrowed_device.user.group.workspace.name %>
+    </p>
+  </div>
+  <div class="col-md-7 admin-tbl-borrowed-items">
+    <div>
+      <p>
+        <b><%= t "borrowed_device.date_from" %></b>
+        <i><%= @borrowed_device.created_at.to_formatted_s(:long) %></i>
+      </p>
+      <p>
+        <b><%= t "borrowed_device.date_to" %></b>
+        <i><%= @borrowed_device.borrow_date_to.to_formatted_s(:long) %></i>
+      </p>
+    </div>
+    <table class="table">
+      <tr>
+        <th><%= t "borrowed_device.index" %></th>
+        <th><%= t "device.id_device" %></th>
+        <th><%= t "device.name_device" %></th>
+        <th><%= t "borrowed_device.image" %></th>
+      </tr>
+      <% if @borrowed_items.present? %>
+        <%= render partial: "list_borrowed_item",
+          collection: @borrowed_items %>
+      <% end -%>
+    </table>
+  </div>
+</div>

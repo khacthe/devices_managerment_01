@@ -13,9 +13,11 @@
     <%= link_to borrow_device_path(borrowed_device.id) do %>
       <span class="glyphicon glyphicon-eye-open"></span>
     <% end -%>
-    <%= link_to t("borrow_device.btn_reject"),
-      borrow_device_path(borrowed_device.id), method: :put,
-      data: {confirm: t("device.confirm-delete",
-      name: borrowed_device.id)} %>
+    <% if can? :update, borrowed_device %>
+      <%= link_to t("borrow_device.btn_reject"),
+        borrow_device_path(borrowed_device.id), method: :put,
+        data: {confirm: t("device.confirm-delete",
+        name: borrowed_device.id)} %>
+    <% end -%>
   </td>
 </tr>

@@ -1,0 +1,27 @@
+<% if can? :index, borrowed_device %>
+  <tr class="<%= check_over_time borrowed_device %>">
+    <td><%= get_index borrowed_device_counter %></td>
+    <td><b><%= borrowed_device.user.username %></b></td>
+    <td><b><%= borrowed_device.user.email %></b></td>
+    <td>
+      <b><%= borrowed_device.borrow_date_from.to_formatted_s(:long) %></b>
+    </td>
+    <td>
+      <b><%= borrowed_device.borrow_date_to.to_formatted_s(:long) %></b>
+    </td>
+    <td>
+      <b><%= get_borrow_status borrowed_device.status %></b>
+    </td>
+    <td>
+      <% if can? :update, borrowed_device %>
+        <%= link_to edit_admin_borrow_device_path(borrowed_device.id) do %>
+          <span class="glyphicon glyphicon-edit"></span>
+        <% end -%>
+      <% else %>
+        <%= link_to admin_borrow_device_path(borrowed_device.id) do %>
+          <span class="glyphicon glyphicon-eye-open"></span>
+        <% end -%>
+      <% end -%>
+    </td>
+  </tr>
+<% end %>
