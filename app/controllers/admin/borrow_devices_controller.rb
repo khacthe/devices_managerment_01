@@ -70,6 +70,7 @@ class Admin::BorrowDevicesController < Admin::BaseController
         @borrow_device.status != BorrowDevice.borrow_statuses[:reject]
         @borrow_device.status = params[:borrow_device][:status].to_i
         flag = update_borrow @borrow_device
+        create_notification current_user.position, @borrow_device
         if flag
           flash[:success] = t "borrow_device.updated"
         else
@@ -92,7 +93,7 @@ class Admin::BorrowDevicesController < Admin::BaseController
 
   def load_borrow_device
     @borrowed_device = BorrowDevice.find_by id: params[:id]
-    if @borrowed_device.present?
+      if @borrowed_device.present?
       @borrowed_items = @borrowed_device.borrow_items
       return if @borrowed_items.present?
       flash[:errors] = t "borrow_device.device_not_found"
@@ -100,6 +101,49 @@ class Admin::BorrowDevicesController < Admin::BaseController
       flash[:errors] = t "borrow_device.borrow_not_found"
     end
     redirect_to admin_borrow_devices_path
+  end
+
+  def create_only_notification user_id, activity, notifications, link
+    Notification.create( user_id: user_id, activity: activity,
+      notifications: notifications, link: link)
+  end
+
+  def create_notification user_position, borrow_device
+    if borrow_device.status == BorrowDevice.borrow_statuses[:reject]
+      case current_user.position
+      when User.user_positions[:leader]
+        position = t "borrow_device.group_noti"
+      when User.user_positions[:bo]
+        position = t "borrow_device.bo_noti"
+      end
+      create_only_notification borrow_device.user_id,
+        t("borrow_device.notification_reject"),
+        t("borrow_device.reject_message", pos: position,
+        name: current_user.username),
+        "#{borrow_devices_path}"
+    else
+      case user_position
+      when User.user_positions[:leader]
+        workspace = borrow_device.user.group.workspace.users
+          .get_manager(User.user_positions[:bo])
+        create_only_notification workspace[0]["id"],
+          t("borrow_device.notification_update"),
+          t("borrow_device.update_message", pos: t("borrow_device.group_noti"),
+          name: current_user.username),
+          "#{edit_admin_borrow_device_path(borrow_device)}"
+        create_only_notification borrow_device.user_id,
+          t("borrow_device.notification_update"),
+          t("borrow_device.update_message", pos: t("borrow_device.group_noti"),
+          name: current_user.username),
+           "#{borrow_devices_path}"
+      when User.user_positions[:bo]
+        create_only_notification borrow_device.user_id,
+          t("borrow_device.notification_update"),
+          t("borrow_device.update_message", pos: t("borrow_device.bo_noti"),
+          name: current_user.username),
+          "#{borrow_devices_path}"
+      end
+    end
   end
 
 end

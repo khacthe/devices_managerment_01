@@ -47,6 +47,7 @@ class BorrowDevicesController < ApplicationController
           end
         end
         if flag
+          create_notification t("borrow_device.notification_borrow")
           session.delete(:item)
           flash[:success] = t "borrow_device.congratulations"
           redirect_to borrow_devices_path
@@ -102,6 +103,7 @@ class BorrowDevicesController < ApplicationController
         end
       end
       if flag
+        create_notification t("borrow_device.notification_reject")
         flash[:success] = t "borrow_device.updated"
       else
         flash[:success] = t "borrow_device.update_failed"
@@ -129,4 +131,13 @@ class BorrowDevicesController < ApplicationController
       :borrow_date_to, :status
   end
 
+  def create_notification noti
+    @group = current_user.group
+    @group.users.get_manager(User.user_positions[:leader]).each do |user|
+      Notification.create(user_id: user.id, activity: noti,
+        notifications: t("borrow_device.noti_message",
+        name: current_user.username, state: noti),
+        link: "#{admin_borrow_devices_path}")
+    end
+  end
 end
