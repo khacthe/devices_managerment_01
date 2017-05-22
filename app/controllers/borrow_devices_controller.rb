@@ -1,4 +1,6 @@
 class BorrowDevicesController < ApplicationController
+  before_action :authenticate_user!
+  load_and_authorize_resource
 
   def index
     @borrowed_devices = BorrowDevice.find_by_user_id(current_user.id)

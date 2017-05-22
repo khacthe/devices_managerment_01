@@ -1,0 +1,22 @@
+<div class="borrowed-devices admin_psge_right">
+  <h3><%= t "borrow_device.list_borrowed" %></h3>
+  <div class="borrowed-items">
+    <%= paginate @borrowed_devices %>
+    <table class="table">
+      <tr>
+        <th><%= t "borrowed_device.index" %></th>
+        <th><%= t "user.name" %></th>
+        <th><%= t "user.email" %></th>
+        <th><%= t "borrowed_device.date_from" %></th>
+        <th><%= t "borrowed_device.date_to" %></th>
+        <th><%= t "borrowed_device.status" %></th>
+        <th colspan="2"></th>
+      </tr>
+      <% if @borrowed_devices.present? %>
+        <%= render partial: "borrowed_device",
+          collection: @borrowed_devices %>
+      <% end -%>
+    </table>
+    <%= paginate @borrowed_devices %>
+  </div>
+</div>

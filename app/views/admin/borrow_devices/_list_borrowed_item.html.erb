@@ -1,0 +1,23 @@
+<tr>
+  <td><%= get_index list_borrowed_item_counter %></td>
+  <td>
+    <b>
+      <%= link_to list_borrowed_item.device.id, "#" %>
+    </b>
+  </td>
+  <td>
+    <b>
+      <%= link_to list_borrowed_item.device.name, "#" %>
+    </b>
+  </td>
+  <td>
+    <b>
+      <div class="td_small">
+        <%= link_to "#" do %>
+          <%= image_tag list_borrowed_item.device.thumnail,
+            class: "cart_image" %>
+        <% end %>
+      </div>
+    </b>
+  </td>
+</tr>

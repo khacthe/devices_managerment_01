@@ -18,6 +18,14 @@ class User < ApplicationRecord
 
   scope :get_manager, -> position {where position: position}
 
+  scope :list_user_id_by_group, -> group_id do
+    User.where(group_id: group_id).map(&:id)
+  end
+
+  scope :list_user_id_by_workspace, -> workspace_id do
+    User.where(group_id: Group.list_group_by_workspace(workspace_id)).map(&:id)
+  end
+
   private
   def set_defaults
     self.position ||= User.user_positions[:member]

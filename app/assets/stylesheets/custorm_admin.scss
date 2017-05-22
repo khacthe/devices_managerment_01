@@ -1,0 +1,214 @@
+@mixin mix_title{
+  padding-top: 60px;
+  h3{
+    text-align: center;
+    padding: 10px;
+    background: #fff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  }
+}
+@mixin mix_content{
+  padding: 10px;
+  background: #ffff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.85), 0 3px 6px rgba(0, 0, 0, 0.17);
+}
+
+@mixin mix_input{
+  width: 100%;
+  padding: 4px 15px;
+}
+
+@mixin mix_input_form{
+  .row{
+    margin-left: 10px;
+    margin-right: 10px;
+    input[type="text"]{
+      @include mix_input;
+    }
+    input[type="email"]{
+      @include mix_input;
+    }
+    textarea{
+      @include mix_input;
+      height: 60px;
+    }
+  }
+  .btn{
+    margin-top: 40px;
+  }
+}
+
+//=========Device==========
+.admin-devices{
+  height: 100%;
+  h3{
+    text-align: center;
+    padding: 10px;
+    background: #fff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  }
+  .devices{
+    padding: 10px;
+    background: #fff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.85), 0 3px 6px rgba(0, 0, 0, 0.17);
+    .new-device{
+      @include mix_input_form;
+    }
+  }
+}
+.new-device{
+  margin-top: 20px;
+  margin-bottom: 100px;
+}
+.import-device{
+  margin-top: 20px;
+  margin-bottom: 100px;
+  padding: 10px;
+  background: #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.admin-update-device{
+  height: 100%;
+  @include mix_title;
+  .update-device{
+    padding: 10px;
+    background: #ffff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.85), 0 3px 6px rgba(0, 0, 0, 0.17);
+    .new-device{
+      @include mix_input_form;
+      .device_thumnail{
+        label{
+          margin-top: 30px;
+          margin-left: 10px;
+        }
+        input[type="file"]{
+          margin-left: 10px;
+        }
+      }
+      .error{
+        color: red;
+      }
+    }
+  }
+}
+.admin-categories{
+  h3{
+    text-align: center;
+    padding: 10px;
+    background: #fff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  }
+  .categories{
+    padding: 10px;
+    background: #ffff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.85), 0 3px 6px rgba(0, 0, 0, 0.17);
+  }
+}
+.new-category{
+  margin-top: 20px;
+  margin-bottom: 100px;
+
+}
+.update-category{
+  @extend .new-category
+}
+.borrowed-devices{
+  @include mix_title;
+  .borrowed-items{
+    @include mix_content;
+    table{
+      .red{
+        background-color: #ee4b28;
+      }
+      .yellow{
+        background-color: yellow;
+      }
+    }
+  }
+}
+.admin-borrow-details{
+  @include mix_title;
+  .user-infor{
+    @include mix_content;
+  }
+  .admin-tbl-borrowed-items{
+    @include mix_content;
+    height: 100%;
+  }
+}
+.btn-submit{
+  @include mix_content;
+  margin-top: 10px;
+  display: inline-block;
+  .btn-reject{
+    text-align: right;
+    .btn{
+      background: red;
+    }
+  }
+  .btn-accept{
+    text-align: left;
+    .btn{
+      background: green;
+    }
+  }
+}
+.admin-user{
+  height: 100%;
+  @include mix_title;
+  .update-user-avatar{
+    text-align: center;
+  }
+  .user{
+    padding: 10px;
+    background: #ffff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.85), 0 3px 6px rgba(0, 0, 0, 0.17);
+    .new-user{
+      @include mix_input_form;
+      width: 70%;
+      padding-left: 30%;
+      .user_avatar{
+        label{
+          margin-top: 30px;
+          margin-left: 10px;
+        }
+        input[type="file"]{
+          margin-left: 10px;
+        }
+      }
+      .error{
+        color: red;
+      }
+    }
+  }
+}
+.menu-admin{
+  background: #fff;
+  padding: 20px 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  ul{
+    list-style-type: none;
+    margin-top: 50px;
+    padding: 0;
+    width: 100%;
+    background-color: #f1f1f1;
+    height: 100%;
+    overflow: auto;
+    li{
+      .menu-admin-link{
+        display: block;
+        color: #000;
+        padding: 8px 16px;
+        text-decoration: none;
+      }
+      .menu-admin-link.active{
+        background-color: #ee4b28;
+        color: white;
+      }
+      .menu-admin-link:hover:not(.active){
+        background-color: #555;
+        color: white;
+      }
+    }
+  }
+}
