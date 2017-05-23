@@ -13,3 +13,4 @@ view:
     off_auto: "off"
 server:
   min_size: 0
+  export_format: "xls"

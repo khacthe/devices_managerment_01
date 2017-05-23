@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
    resources :borrow_devices
+   resources :devices
   end
 
   mount ActionCable.server => "/cable"

@@ -1,0 +1,13 @@
+<table class="table">
+  <tr>
+    <th><%= t "device.id_device" %></th>
+    <th><%= t "device.name_device" %></th>
+    <th><%= t "device.thumnail" %></th>
+    <th><%= t "device.borrowed" %></th>
+    <th colspan="2"></th>
+  </tr>
+  <% if @devices.present? %>
+    <%= render partial: "device", collection: @devices %>
+  <% end -%>
+</table>
+<%= paginate @devices %>
