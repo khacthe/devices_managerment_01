@@ -28,6 +28,7 @@ gem "bootstrap-datepicker-rails"
 gem "roo"
 gem "mini_magick", "~> 4.7"
 gem "carrierwave", "~> 1.1"
+gem "whenever", "~> 0.9.7"
 
 group :development, :test do
   # Use mysql data

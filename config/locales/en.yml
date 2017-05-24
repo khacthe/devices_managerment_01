@@ -145,3 +145,9 @@ en:
     workspace_update: "Workspace BO update status message"
     message: "message"
     send_message: "send message"
+
+  mailer:
+    greeting: "Hi"
+    click_here: "Click here"
+    title_deadline: "Dealine borrow device"
+    content_deadline: "You have borrow device deadline today from framgia please login view detail"

@@ -31,9 +31,23 @@ class BorrowDevice < ApplicationRecord
     BorrowDevice.all.order(created_at: :desc)
   end
 
+  scope :dealine_borrow, -> do
+    where borrow_date_to: Date.today,
+    status: BorrowDevice.borrow_statuses[:borrowed]
+  end
+
   private
   def set_defaults
     self.borrow_type ||= false
   end
 
+  def self.send_deline_borrow
+    borrows = self.dealine_borrow
+      if borrows
+      borrows.each do |borrow|
+        user = borrow.user
+        UserMailer.send_email_deadline_to_user(user).deliver
+      end
+    end
+  end
 end
