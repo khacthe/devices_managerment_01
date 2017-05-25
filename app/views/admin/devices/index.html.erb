@@ -1,0 +1,18 @@
+<% provide :pagetext, t("device.devices") %>
+<div class="admin-devices admin_psge_right">
+  <div class="devices">
+    <div class="admin_list_devices">
+      <%= render "list_devices" %>
+    </div>
+  </div>
+</div>
+<% if can? :destroy, @device %>
+  <div class="new-device">
+    <%= link_to new_admin_device_path do %>
+      <button class="btn btn-primary"><%= t "device.new" %></button>
+    <% end %>
+    <%= link_to t("device.export"),
+      admin_devices_path(format: Settings.server.export_format),
+      class: "btn btn-primary" %>
+  </div>
+<% end %>

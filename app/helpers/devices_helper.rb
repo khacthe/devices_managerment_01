@@ -8,12 +8,12 @@ module DevicesHelper
     end
   end
 
-  def get_categories
-    Category.all
-  end
-
   def get_index index
     index += Settings.view.increase_index
+  end
+
+  def verify_admin user
+    user.position == User.user_positions[:admin] ? true : false
   end
 
 end
